@@ -1,15 +1,12 @@
 import { IHookFunctions } from 'n8n-workflow';
 import { WEBHOOK } from '../constants/core';
 import { makeApiRequest } from '../utils/apiRequest';
-import { resolveWebhookUrl } from '../utils/helpers';
 
 export async function createWebhook(
 	this: IHookFunctions,
 	eventType: string,
 ): Promise<{ id: string }> {
-	// const webhookUrl = this.getNodeWebhookUrl('default');
-	const path = 'krispcall'; // Static path for the webhook
-	const webhookUrl = resolveWebhookUrl.call(this, path);
+	const webhookUrl = this.getNodeWebhookUrl('default');
 
 	// Prepare the request body
 	const body = {

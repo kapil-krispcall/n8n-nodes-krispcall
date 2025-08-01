@@ -2,6 +2,24 @@ import { INodeProperties } from 'n8n-workflow';
 import { Action, webhookEventOptions } from '../webhooks/events';
 import { RESOURCE } from '../constants/resource';
 
+export const webhookResource: INodeProperties[] = [
+	{
+		displayName: 'Resource',
+		name: 'resource',
+		type: 'options',
+		options: [
+			{
+				name: 'Webhook',
+				value: RESOURCE.WEBHOOK,
+				description: 'Manage webhooks in KrispCall',
+			},
+		],
+		default: 'webhook',
+		noDataExpression: true,
+		required: true,
+	},
+];
+
 export const webhookOptions = [
 	{
 		name: 'New Contact',
@@ -58,38 +76,27 @@ export const webhookOperations: INodeProperties[] = [
 ];
 
 export const webhookFields: INodeProperties[] = [
-	{
-		displayName: 'Event Type',
-		name: 'eventType',
-		type: 'options',
-		default: 'new_contact',
-		options: webhookOptions,
-		required: true,
-		displayOptions: {
-			show: {
-				resource: [RESOURCE.WEBHOOK],
-			},
-		},
-		description: 'The type of event for which the webhook will be triggered',
-	},
-];
-
-export const webhookResource: INodeProperties[] = [
-	{
-		displayName: 'Resource',
-		name: 'resource',
-		type: 'options',
-		options: [
-			{
-				name: 'Webhook',
-				value: RESOURCE.WEBHOOK,
-				description: 'Manage webhooks in KrispCall',
-			},
-		],
-		default: 'webhook',
-		noDataExpression: true,
-		required: true,
-	},
+// 	{
+// 		displayName: 'Event Type',
+// 		name: 'eventType',
+// 		type: 'string',
+// 		default: 'new_contact',
+// 		required: true,
+// 		displayOptions: {
+// 			show: {
+// 				resource: [RESOURCE.WEBHOOK],
+// 				operation: [
+// 					'new_contact',
+// 					'new_sms_or_mms',
+// 					'new_voicemail',
+// 					'new_call_log',
+// 					'incoming_call',
+// 					'outbound_sms_or_mms',
+// 				],
+// 			},
+// 		},
+// 		description: 'The type of event for which the webhook will be triggered',
+// 	},
 ];
 
 export const webhookProperties: INodeProperties[] = [

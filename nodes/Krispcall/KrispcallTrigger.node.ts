@@ -6,8 +6,9 @@ import {
 	IWebhookResponseData,
 	IHookFunctions,
 } from 'n8n-workflow';
-import { webhookFields, webhookResource } from './descriptions/webhookDescription';
+import { webhookOperations, webhookFields } from './descriptions/webhookDescription';
 import { createWebhook, deleteWebhook } from './webhooks/handler';
+import { RESOURCE } from './constants/resource';
 
 export class KrispcallTrigger implements INodeType {
 	description: INodeTypeDescription = {
@@ -16,6 +17,7 @@ export class KrispcallTrigger implements INodeType {
 		icon: 'file:Krispcall.svg',
 		group: ['trigger'],
 		version: 1,
+		subtitle: '={{ $parameter["operation"] + ": " + $parameter["resource"] }}',
 		description: 'Triggers workflow on KrispCall webhook events',
 		defaults: {
 			name: 'Krispcall Trigger',
@@ -36,7 +38,21 @@ export class KrispcallTrigger implements INodeType {
 				path: 'krispcall',
 			},
 		],
-		properties: [...webhookResource, ...webhookFields],
+		properties: [
+			{
+				displayName: 'Resource',
+				name: 'resource',
+				type: 'options',
+				options: [
+					{ name: 'Webhook', value: RESOURCE.WEBHOOK, description: 'Manage webhooks in KrispCall' },
+				],
+				default: 'webhook',
+				noDataExpression: true,
+				required: true,
+			},
+			...webhookOperations,
+			...webhookFields,
+		],
 	};
 	async webhook(this: IWebhookFunctions): Promise<IWebhookResponseData> {
 		const body = this.getBodyData();
@@ -52,9 +68,9 @@ export class KrispcallTrigger implements INodeType {
 			},
 
 			async create(this: IHookFunctions): Promise<boolean> {
-				const eventType = this.getNodeParameter('eventType', 0) as string;
-
-				const response = await createWebhook.call(this, eventType);
+				// const eventType = this.getNodeParameter('eventType', 0) as string;
+				const operation = this.getNodeParameter('operation', 0) as string;
+				const response = await createWebhook.call(this, operation);
 
 				const staticData = this.getWorkflowStaticData('node');
 				staticData.webhookId = response.id;
