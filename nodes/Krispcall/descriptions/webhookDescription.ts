@@ -63,7 +63,7 @@ export const webhookFields: INodeProperties[] = [
 		name: 'eventType',
 		type: 'options',
 		default: 'new_contact',
-		options: webhookEventOptions,
+		options: webhookOptions,
 		required: true,
 		displayOptions: {
 			show: {

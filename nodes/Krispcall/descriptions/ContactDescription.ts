@@ -60,7 +60,7 @@ export const contactOperations: INodeProperties[] = [
 export const contactFields: INodeProperties[] = [
 	{
 		displayName: 'Phone Number',
-		name: 'number', // Changed name to camelCase for consistency
+		name: 'number',
 		type: 'string',
 		required: true,
 		displayOptions: {
@@ -72,7 +72,7 @@ export const contactFields: INodeProperties[] = [
 		default: '',
 		placeholder: 'e.g. +1234567890',
 		description:
-			'The phone number of the contact to create. Must include country code (e.g., +1 for USA).', // Added more detail to placeholder/description
+			'The phone number of the contact to create. Must include country code (e.g., +1 for USA).',
 	},
 	{
 		displayName: 'Phone Numbers',
@@ -121,7 +121,7 @@ export const contactFields: INodeProperties[] = [
 		default: '',
 		placeholder: 'e.g. John Doe',
 		description:
-			'The name of the contact to create. Optional but recommended for better identification.',
+			'The name of the contact to create',
 	},
 	{
 		displayName: 'Email',
@@ -136,7 +136,7 @@ export const contactFields: INodeProperties[] = [
 		default: '',
 		placeholder: 'e.g. john.doe@example.com',
 		description:
-			'The email address of the contact to create. Optional but recommended for better identification.',
+			'The email address of the contact to create',
 	},
 	{
 		displayName: 'Company',
@@ -151,6 +151,6 @@ export const contactFields: INodeProperties[] = [
 		},
 		default: '',
 		placeholder: 'e.g. Acme Corp',
-		description: 'The company of the contact (optional)',
+		description: 'The company of the contact',
 	},
 ];

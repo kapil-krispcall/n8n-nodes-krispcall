@@ -9,9 +9,8 @@ import {
 	getVoicemail,
 	getNumbers,
 } from '../operations/ContactOperations';
-import { createWebhook } from '../operations/WebhookOperations';
+
 import { getSms, sendMms, sendSms } from './SmsOperations';
-import { Action } from '../webhooks/events';
 
 export async function handleOperation(
 	this: IExecuteFunctions,
@@ -24,29 +23,13 @@ export async function handleOperation(
 			case OPERATION.CREATE:
 				return await createContact.call(this, index);
 			case OPERATION.GET_ALL:
-				return await getContacts.call(this, index);
+				return await getContacts.call(this);
 			case OPERATION.DELETE:
 				return await deleteContact.call(this, index);
 			case OPERATION.GET_VOICEMAIL:
-				return await getVoicemail.call(this, index);
+				return await getVoicemail.call(this);
 			case OPERATION.GET_NUMBERS:
-				return await getNumbers.call(this, index);
-		}
-	}
-
-	if (resource === RESOURCE.WEBHOOK) {
-		switch (operation) {
-			case Action.INCOMING_CALL:
-			case Action.NEW_CONTACT:
-			case Action.NEW_SMS_OR_MMS:
-			case Action.NEW_VOICEMAIL:
-			case Action.NEW_CALL_LOG:
-			case Action.OUTBOUND_SMS_OR_MMS:
-				return await createWebhook.call(this, index);
-			default:
-				throw new Error(
-					`The operation "${operation}" is not supported for the resource "${resource}".`,
-				);
+				return await getNumbers.call(this);
 		}
 	}
 
