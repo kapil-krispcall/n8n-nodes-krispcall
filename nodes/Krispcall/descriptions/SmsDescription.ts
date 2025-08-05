@@ -3,7 +3,7 @@ import { OPERATION } from '../constants/operations';
 import { RESOURCE } from '../constants/resource';
 
 export const smsResource = {
-	name: RESOURCE.SMS,
+	name: 'Sms',
 	value: RESOURCE.SMS,
 	description: 'Manage SMS in KrispCall',
 };
