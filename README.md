@@ -52,7 +52,7 @@ To use this node, you must have a [KrispCall](https://krispcall.com) account and
 | Resource    | Operations              |
 | ----------- | ----------------------- |
 | `Contact`   | Create, Get All, Delete |
-| `SMS` `MMS  | Send, List              |
+| `SMS` `MMS`  | Send, List              |
 | `Voicemail` | Get                     |
 | `Numbers`   | Get                     |
 | `Webhook`   | Create, Delete          |
