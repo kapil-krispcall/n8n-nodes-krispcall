@@ -1,4 +1,9 @@
-import { IExecuteFunctions, IHookFunctions, IHttpRequestMethods } from 'n8n-workflow';
+import {
+	IExecuteFunctions,
+	IHookFunctions,
+	IHttpRequestMethods,
+	ILoadOptionsFunctions,
+} from 'n8n-workflow';
 
 interface ApiRequestOptions {
 	method: IHttpRequestMethods;
@@ -8,7 +13,7 @@ interface ApiRequestOptions {
 	query?: number;
 }
 export async function makeApiRequest(
-	this: IExecuteFunctions | IHookFunctions,
+	this: IExecuteFunctions | IHookFunctions | ILoadOptionsFunctions,
 	{ method, endpoint, body = {}, headers = {} }: ApiRequestOptions,
 ): Promise<any> {
 	const credentials = await this.getCredentials('krispcallApi');

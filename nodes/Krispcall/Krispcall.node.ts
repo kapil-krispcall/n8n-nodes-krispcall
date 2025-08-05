@@ -4,9 +4,11 @@ import {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
+	IDataObject,
 } from 'n8n-workflow';
 import { NodeApiError } from 'n8n-workflow'; // Import NodeApiError for better error reporting
-
+import { ILoadOptionsFunctions } from 'n8n-workflow';
+import { getNumbers } from './operations/ContactOperations';
 import { handleOperation } from './operations/handlers';
 import { CORE } from './constants/core'; // Import constants for better maintainability
 
@@ -34,7 +36,19 @@ export class Krispcall implements INodeType {
 		],
 		properties: [...resource, ...operations, ...fields],
 	};
-
+	methods = {
+		loadOptions: {
+			async getFromNumbers(this: ILoadOptionsFunctions) {
+				const response = await getNumbers.call(this);
+				return response.map((item: IDataObject) => {
+					return {
+						name: ` ${item.name} | ${item.number}`,
+						value: item.number,
+					};
+				});
+			},
+		},
+	};
 	async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
 		const items = this.getInputData();
 		const returnData: INodeExecutionData[] = [];

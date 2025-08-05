@@ -48,13 +48,17 @@ export const smsOperations: INodeProperties[] = [
 
 export const smsFields: INodeProperties[] = [
 	{
-		displayName: 'From Number',
+		displayName: 'From Number Name or ID',
 		name: 'fromNumber',
-		type: 'string',
+		type: 'options',
 		default: '',
 		required: true,
-		placeholder: 'Enter the sender phone number',
-		description: 'The phone number from which the SMS or MMS will be sent',
+		placeholder: 'Select the sender phone number',
+		description:
+			'The phone number from which the SMS or MMS will be sent. Choose from the list of available numbers. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
+		typeOptions: {
+			loadOptionsMethod: 'getFromNumbers',
+		},
 		displayOptions: {
 			show: {
 				operation: [OPERATION.SEND, OPERATION.SEND_MMS],

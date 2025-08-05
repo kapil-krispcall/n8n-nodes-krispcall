@@ -1,4 +1,4 @@
-import { IDataObject, IExecuteFunctions } from 'n8n-workflow';
+import { IDataObject, IExecuteFunctions, ILoadOptionsFunctions } from 'n8n-workflow';
 import { validatePhoneNumber } from '../utils/validation';
 import { makeApiRequest } from '../utils/apiRequest';
 
@@ -73,7 +73,7 @@ export async function getVoicemail(this: IExecuteFunctions): Promise<any> {
 	return response;
 }
 
-export async function getNumbers(this: IExecuteFunctions): Promise<any> {
+export async function getNumbers(this: IExecuteFunctions | ILoadOptionsFunctions): Promise<any> {
 	const response = await makeApiRequest.call(this, {
 		method: 'GET',
 		endpoint: ENDPOINTS.GET_NUMBERS,
