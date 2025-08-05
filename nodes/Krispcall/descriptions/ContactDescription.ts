@@ -24,20 +24,20 @@ export const contactOptions = [
 	{
 		name: 'Delete',
 		value: OPERATION.DELETE,
-		description: 'Delete a contact in KrispCall',
-		action: 'Delete a contact',
+		description: 'Delete contacts in KrispCall',
+		action: 'Delete contacts',
 	},
 	{
 		name: 'Get Voicemail',
 		value: OPERATION.GET_VOICEMAIL,
-		description: 'Retrieve a contact from KrispCall',
-		action: 'Get a contact',
+		description: 'Retrieve voicemails from KrispCall',
+		action: 'Get many voicemails',
 	},
 	{
 		name: 'Get Numbers',
 		value: OPERATION.GET_NUMBERS,
-		description: 'Retrieve numbers associated with a contact in KrispCall',
-		action: 'Get numbers for a contact',
+		description: 'Retrieve numbers associated with your account in KrispCall',
+		action: 'Get numbers from KrispCall',
 	},
 ];
 
@@ -119,9 +119,8 @@ export const contactFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		placeholder: 'e.g. John Doe',
-		description:
-			'The name of the contact to create',
+		placeholder: 'e.g. Kapil Bhandari',
+		description: 'The name of the contact to create',
 	},
 	{
 		displayName: 'Email',
@@ -134,9 +133,8 @@ export const contactFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		placeholder: 'e.g. john.doe@example.com',
-		description:
-			'The email address of the contact to create',
+		placeholder: 'e.g. kapil@example.com',
+		description: 'The email address of the contact to create',
 	},
 	{
 		displayName: 'Company',
@@ -150,7 +148,22 @@ export const contactFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		placeholder: 'e.g. Acme Corp',
+		placeholder: 'e.g. KrispCall',
 		description: 'The company of the contact',
+	},
+	{
+		displayName: 'Address',
+		name: 'address',
+		type: 'string',
+
+		displayOptions: {
+			show: {
+				operation: [OPERATION.CREATE],
+				resource: [RESOURCE.CONTACT],
+			},
+		},
+		default: '',
+		placeholder: 'e.g Pokhara, Nepal',
+		description: 'The address of the contact',
 	},
 ];
