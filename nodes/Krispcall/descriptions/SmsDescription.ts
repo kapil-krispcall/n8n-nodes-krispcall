@@ -21,12 +21,6 @@ export const smsOptions = [
 		description: 'Send an MMS in KrispCall',
 		action: 'Send an MMS',
 	},
-	{
-		name: 'Get Many',
-		value: OPERATION.GET_ALL,
-		description: 'Retrieve an SMS in KrispCall',
-		action: 'Get an SMS',
-	},
 ];
 
 export const smsOperations: INodeProperties[] = [
@@ -41,7 +35,7 @@ export const smsOperations: INodeProperties[] = [
 		},
 
 		options: smsOptions,
-		default: 'getAll',
+		default: 'send',
 		noDataExpression: true,
 	},
 ];

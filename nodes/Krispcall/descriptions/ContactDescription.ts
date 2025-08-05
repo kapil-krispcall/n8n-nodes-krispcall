@@ -33,12 +33,6 @@ export const contactOptions = [
 		description: 'Retrieve voicemails from KrispCall',
 		action: 'Get many voicemails',
 	},
-	{
-		name: 'Get Numbers',
-		value: OPERATION.GET_NUMBERS,
-		description: 'Retrieve numbers associated with your account in KrispCall',
-		action: 'Get numbers from KrispCall',
-	},
 ];
 
 export const contactOperations: INodeProperties[] = [
