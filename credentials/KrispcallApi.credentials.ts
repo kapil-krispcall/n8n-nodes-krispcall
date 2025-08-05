@@ -4,13 +4,23 @@ import {
 	ICredentialType,
 	INodeProperties,
 } from 'n8n-workflow';
-import { API_BASE_URL, CORE } from '../nodes/Krispcall/constants/core';
+import { CORE } from '../nodes/Krispcall/constants/core';
 import { ENDPOINTS } from '../nodes/Krispcall/constants/endpoints';
 
 export class KrispcallApi implements ICredentialType {
 	name = CORE.CREDENTIALS.NAME;
 	displayName = CORE.CREDENTIALS.DISPLAY_NAME;
 	properties: INodeProperties[] = [
+		{
+			displayName: 'Base URL',
+			name: 'baseUrl',
+			type: 'string',
+			default: 'https://app.krispcall.com/api/v3/platform/n8n',
+			description: 'The base URL for the API. Default is the KrispCall API base URL.',
+			placeholder: 'https://app.krispcall.com/api/v3/platform/n8n',
+			required: true,
+		},
+
 		{
 			displayName: 'API Key',
 			name: 'apiKey',
@@ -19,15 +29,6 @@ export class KrispcallApi implements ICredentialType {
 				password: true,
 			},
 			default: '',
-		},
-		{
-			displayName: 'Base URL',
-			name: 'baseUrl',
-			type: 'string',
-			default: API_BASE_URL,
-			description: 'The base URL for the API. Default is the KrispCall API base URL.',
-			placeholder: API_BASE_URL,
-			required: true,
 		},
 	];
 
@@ -41,7 +42,7 @@ export class KrispcallApi implements ICredentialType {
 	};
 	test: ICredentialTestRequest = {
 		request: {
-			baseURL: API_BASE_URL,
+			baseURL: `={{$credentials.baseUrl}}`,
 			url: ENDPOINTS.ME,
 			method: 'GET',
 		},

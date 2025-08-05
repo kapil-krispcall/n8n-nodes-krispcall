@@ -1,4 +1,3 @@
-import { API_BASE_URL } from '../constants/core';
 import { IExecuteFunctions, IHookFunctions, IHttpRequestMethods } from 'n8n-workflow';
 
 interface ApiRequestOptions {
@@ -12,9 +11,12 @@ export async function makeApiRequest(
 	this: IExecuteFunctions | IHookFunctions,
 	{ method, endpoint, body = {}, headers = {} }: ApiRequestOptions,
 ): Promise<any> {
+	const credentials = await this.getCredentials('krispcallApi');
+
+	const baseUrl = credentials.baseUrl;
 	const options = {
 		method,
-		uri: `${API_BASE_URL}${endpoint}`,
+		uri: `${baseUrl}${endpoint}`,
 		headers: {
 			Accept: 'application/json',
 			'Content-Type': 'application/json',
