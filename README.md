@@ -76,7 +76,7 @@ To use this node, you must have a [KrispCall](https://krispcall.com) account and
 
 ## License
 
-[MIT](https://github.com/n8n-io/n8n-nodes-krispcall/blob/master/LICENSE.md)
+[MIT](./LICENSE)
 
 ---
 
