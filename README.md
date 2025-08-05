@@ -1,48 +1,83 @@
 ![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
 
-# n8n-nodes-starter
+# n8n-nodes-krispcall
 
-This repo contains example nodes to help you get started building your own custom integrations for [n8n](https://n8n.io). It includes the node linter and other dependencies.
+This repository contains the custom [n8n](https://n8n.io) node for Krispcall, designed to help you automate your telephony workflows directly within n8n. It includes the node linter and other necessary development dependencies.
 
-To make your custom node available to the community, you must create it as an npm package, and [submit it to the npm registry](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry).
+**KrispCall** is an AI-powered modern telephony platform that helps businesses streamline communication with virtual numbers, advanced calling features, and seamless CRM integrations.
 
-If you would like your node to be available on n8n cloud you can also [submit your node for verification](https://docs.n8n.io/integrations/creating-nodes/deploy/submit-community-nodes/).
+This **n8n community node** enables you to integrate KrispCall’s advanced telephony features into your n8n workflows. You can create and manage contacts, send SMS/MMS messages, retrieve voicemails, and manage webhooks directly from n8n.
 
-## Prerequisites
+---
 
-You need the following installed on your development machine:
+## 🔧 Features
 
-* [git](https://git-scm.com/downloads)
-* Node.js and npm. Minimum version Node 20. You can find instructions on how to install both using nvm (Node Version Manager) for Linux, Mac, and WSL [here](https://github.com/nvm-sh/nvm). For Windows users, refer to Microsoft's guide to [Install NodeJS on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
-* Install n8n with:
-  ```
-  npm install n8n -g
-  ```
-* Recommended: follow n8n's guide to [set up your development environment](https://docs.n8n.io/integrations/creating-nodes/build/node-development-environment/).
+- 🔐 API key authentication
+- 📇 Create and manage contacts
+- 📤 Send SMS and MMS
+- 📥 Retrieve voicemails and phone numbers
+- 🌐 Create and delete webhooks for real-time event handling
 
-## Using this starter
+---
 
-These are the basic steps for working with the starter. For detailed guidance on creating and publishing nodes, refer to the [documentation](https://docs.n8n.io/integrations/creating-nodes/).
+## 📦 Installation
 
-1. [Generate a new repository](https://github.com/n8n-io/n8n-nodes-starter/generate) from this template repository.
-2. Clone your new repo:
-   ```
-   git clone https://github.com/<your organization>/<your-repo-name>.git
-   ```
-3. Run `npm i` to install dependencies.
-4. Open the project in your editor.
-5. Browse the examples in `/nodes` and `/credentials`. Modify the examples, or replace them with your own nodes.
-6. Update the `package.json` to match your details.
-7. Run `npm run lint` to check for errors or `npm run lintfix` to automatically fix errors when possible.
-8. Test your node locally. Refer to [Run your node locally](https://docs.n8n.io/integrations/creating-nodes/test/run-node-locally/) for guidance.
-9. Replace this README with documentation for your node. Use the [README_TEMPLATE](README_TEMPLATE.md) to get started.
-10. Update the LICENSE file to use your details.
-11. [Publish](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry) your package to npm.
+Install this community node in your n8n instance:
 
-## More information
+```bash
+npm install n8n-nodes-krispcall
+```
 
-Refer to our [documentation on creating nodes](https://docs.n8n.io/integrations/creating-nodes/) for detailed information on building your own nodes.
+Or via the n8n Community Nodes UI (under Settings → Community Nodes → Install).
+
+## 🔐 Authentication
+
+To use this node, you must have a [KrispCall](https://krispcall.com) account and an API key.
+
+### Get your API Key
+
+1. Sign in to your [KrispCall](https://krispcall.com) account
+2. Navigate to **Settings** → **Developer**
+3. Click **Generate API Key**
+4. Copy the key and use it when setting up credentials in n8n
+
+### Credentials Setup in n8n:
+
+**Base URL:** `https://app.krispcall.com/api/v3/platform/n8n`
+
+**API Key:** Paste your [KrispCall](https://krispcall.com) API key
+
+## 🔁 Supported Resources & Operations Resource
+
+| Resource    | Operations              |
+| ----------- | ----------------------- |
+| `Contact`   | Create, Get All, Delete |
+| `SMS` `MMS  | Send, List              |
+| `Voicemail` | Get                     |
+| `Numbers`   | Get                     |
+| `Webhook`   | Create, Delete          |
+
+## 📘 Example Usage
+
+### Create a Contact
+
+1. Connect to KrispCall via `credentials`
+2. Select resource: `Contact`
+3. Choose operation: `Create`
+4. Provide the contact details (name, `phone`, etc.)
+5. Execute
+
+### Send SMS
+
+1. Select resource: `SMS`
+2. Choose operation: `Send`
+3. Set `phone number` and `message`
+4. Execute
 
 ## License
 
-[MIT](https://github.com/n8n-io/n8n-nodes-starter/blob/master/LICENSE.md)
+[MIT](https://github.com/n8n-io/n8n-nodes-krispcall/blob/master/LICENSE.md)
+
+---
+
+Made with ❤️ by KrispCall & the n8n community.
