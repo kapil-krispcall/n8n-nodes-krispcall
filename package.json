@@ -35,11 +35,11 @@
 	"n8n": {
 		"n8nNodesApiVersion": 1,
 		"credentials": [
-			"dist/credentials/krispcallApi.credentials.js"
+			"dist/credentials/KrispcallApi.credentials.js"
 		],
 		"nodes": [
-			"dist/nodes/krispcall/krispcall.node.js",
-			"dist/nodes/krispcall/krispcallTrigger.node.js"
+			"dist/nodes/Krispcall/Krispcall.node.js",
+			"dist/nodes/Krispcall/KrispcallTrigger.node.js"
 		]
 	},
 	"devDependencies": {
