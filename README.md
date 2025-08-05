@@ -39,9 +39,9 @@ To use this node, you must have a [KrispCall](https://krispcall.com) account and
 1. Sign in to your [KrispCall](https://krispcall.com) account
 2. Navigate to **Settings** → **Developer**
 3. Click **Generate API Key**
-4. Copy the key and use it when setting up credentials in n8n
+4. Copy the key and use it when setting up **credentials** in n8n
 
-### Credentials Setup in n8n:
+### Credentials Setup in n8n
 
 **Base URL:** `https://app.krispcall.com/api/v3/platform/n8n`
 
@@ -64,7 +64,7 @@ To use this node, you must have a [KrispCall](https://krispcall.com) account and
 1. Connect to KrispCall via `credentials`
 2. Select resource: `Contact`
 3. Choose operation: `Create`
-4. Provide the contact details (name, `phone`, etc.)
+4. Provide the contact details (`name`, `phone`, etc.)
 5. Execute
 
 ### Send SMS
@@ -77,7 +77,3 @@ To use this node, you must have a [KrispCall](https://krispcall.com) account and
 ## License
 
 [MIT](./LICENSE)
-
----
-
-Made with ❤️ by KrispCall & the n8n community.
