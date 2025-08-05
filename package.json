@@ -3,7 +3,8 @@
 	"version": "0.1.0",
 	"description": "An AI-Powered Modern Phone App custom node for n8n.",
 	"keywords": [
-		"n8n-community-node-package"
+		"n8n-community-node-package",
+		"krispcall"
 	],
 	"license": "MIT",
 	"homepage": "https://krispcall.com/",
@@ -13,7 +14,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/<...>/krispcall.git"
+		"url": "https://github.com/kapil-krispcall/n8n-nodes-krispcall.git"
 	},
 	"engines": {
 		"node": ">=20.15"
