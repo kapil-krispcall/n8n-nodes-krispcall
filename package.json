@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-krispcall",
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"description": "An AI-Powered Modern Phone App custom node for n8n.",
 	"keywords": [
 		"n8n-community-node-package",
