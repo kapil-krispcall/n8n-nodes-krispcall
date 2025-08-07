@@ -46,12 +46,6 @@ export const webhookOptions = [
 		action: Action.NEW_CALL_LOG,
 	},
 	{
-		name: 'Incoming Call',
-		value: Action.INCOMING_CALL,
-		description: 'Incoming call event in KrispCall',
-		action: Action.INCOMING_CALL,
-	},
-	{
 		name: 'Outbound SMS or MMS',
 		value: Action.OUTBOUND_SMS_OR_MMS,
 		description: 'Outbound SMS or MMS sent from KrispCall',
@@ -76,27 +70,27 @@ export const webhookOperations: INodeProperties[] = [
 ];
 
 export const webhookFields: INodeProperties[] = [
-// 	{
-// 		displayName: 'Event Type',
-// 		name: 'eventType',
-// 		type: 'string',
-// 		default: 'new_contact',
-// 		required: true,
-// 		displayOptions: {
-// 			show: {
-// 				resource: [RESOURCE.WEBHOOK],
-// 				operation: [
-// 					'new_contact',
-// 					'new_sms_or_mms',
-// 					'new_voicemail',
-// 					'new_call_log',
-// 					'incoming_call',
-// 					'outbound_sms_or_mms',
-// 				],
-// 			},
-// 		},
-// 		description: 'The type of event for which the webhook will be triggered',
-// 	},
+	// 	{
+	// 		displayName: 'Event Type',
+	// 		name: 'eventType',
+	// 		type: 'string',
+	// 		default: 'new_contact',
+	// 		required: true,
+	// 		displayOptions: {
+	// 			show: {
+	// 				resource: [RESOURCE.WEBHOOK],
+	// 				operation: [
+	// 					'new_contact',
+	// 					'new_sms_or_mms',
+	// 					'new_voicemail',
+	// 					'new_call_log',
+	// 					'incoming_call',
+	// 					'outbound_sms_or_mms',
+	// 				],
+	// 			},
+	// 		},
+	// 		description: 'The type of event for which the webhook will be triggered',
+	// 	},
 ];
 
 export const webhookProperties: INodeProperties[] = [

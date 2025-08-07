@@ -16,12 +16,6 @@ export const contactOptions = [
 		action: 'Create a contact',
 	},
 	{
-		name: 'Get Many',
-		value: OPERATION.GET_ALL,
-		description: 'Retrieve many contacts from KrispCall',
-		action: 'Get many contacts',
-	},
-	{
 		name: 'Delete',
 		value: OPERATION.DELETE,
 		description: 'Delete contacts in KrispCall',
