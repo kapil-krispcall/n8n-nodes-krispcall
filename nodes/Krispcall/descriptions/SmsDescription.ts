@@ -3,7 +3,7 @@ import { OPERATION } from '../constants/operations';
 import { RESOURCE } from '../constants/resource';
 
 export const smsResource = {
-	name: 'Sms',
+	name: 'SMS_MMS',
 	value: RESOURCE.SMS,
 	description: 'Manage SMS in KrispCall',
 };
@@ -82,10 +82,24 @@ export const smsFields: INodeProperties[] = [
 		default: '',
 		required: true,
 		placeholder: 'Enter the message content here',
-		description: 'The content of the SMS or MMS message',
+		description: 'The content of the SMS message',
 		displayOptions: {
 			show: {
-				operation: [OPERATION.SEND, OPERATION.SEND_MMS],
+				operation: [OPERATION.SEND],
+				resource: [RESOURCE.SMS],
+			},
+		},
+	},
+	{
+		displayName: 'Content',
+		name: 'content',
+		type: 'string',
+		default: '',
+		placeholder: 'Enter the message content here (optional)',
+		description: 'The content of the MMS message (optional)',
+		displayOptions: {
+			show: {
+				operation: [OPERATION.SEND_MMS],
 				resource: [RESOURCE.SMS],
 			},
 		},
@@ -94,15 +108,17 @@ export const smsFields: INodeProperties[] = [
 		displayName: 'Medias URL',
 		name: 'medias',
 		type: 'fixedCollection',
+		required: true,
 		typeOptions: {
 			multipleValues: true,
 		},
 		default: {},
-		placeholder: 'https://example.com/image.jpg',
-		description: 'Publicly accessible URL of the image to send with the MMS message',
+		placeholder: 'Add Image URL',
+		description:
+			'Publicly accessible URL of the image to send with the MMS message (at least one URL required)',
 		displayOptions: {
 			show: {
-				operation: ['mms'],
+				operation: [OPERATION.SEND_MMS],
 				resource: [RESOURCE.SMS],
 			},
 		},
@@ -110,6 +126,7 @@ export const smsFields: INodeProperties[] = [
 			{
 				displayName: 'Media',
 				name: 'media',
+				required: true,
 				values: [
 					{
 						displayName: 'Media URL',

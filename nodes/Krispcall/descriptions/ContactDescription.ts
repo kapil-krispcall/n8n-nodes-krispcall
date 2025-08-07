@@ -40,7 +40,7 @@ export const contactOperations: INodeProperties[] = [
 			},
 		},
 		options: contactOptions,
-		default: 'getAll',
+		default: 'create',
 		noDataExpression: true,
 	},
 ];

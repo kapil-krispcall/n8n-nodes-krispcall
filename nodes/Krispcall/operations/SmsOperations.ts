@@ -39,8 +39,13 @@ export async function sendMms(this: IExecuteFunctions, itemIndex: number): Promi
 
 	// medias
 	const medias = this.getNodeParameter('medias', itemIndex) as {
-		media: Array<{ url: string }>;
+		media?: Array<{ url: string }>;
 	};
+
+	// Validate that medias are provided
+	if (!medias.media || medias.media.length === 0) {
+		throw new Error('At least one media URL is required for MMS messages');
+	}
 
 	// Build the data object
 	const data: IDataObject = {
