@@ -49,13 +49,11 @@ To use this node, you must have a [KrispCall](https://krispcall.com) account and
 
 ## 🔁 Supported Resources & Operations Resource
 
-| Resource    | Operations              |
-| ----------- | ----------------------- |
-| `Contact`   | Create, Get All, Delete |
-| `SMS` `MMS`  | Send, List              |
-| `Voicemail` | Get                     |
-| `Numbers`   | Get                     |
-| `Webhook`   | Create, Delete          |
+| Resource    | Actions              |Triggers |
+| ----------- | ----------------------- | -- |
+| `Contact`   | Create, Delete | New Contact, Call Logs|
+| `SMS` `MMS`  | Send              | New SMS or MMS, |
+| `Voicemail` | Get| New Voicemail|
 
 ## 📘 Example Usage
 
